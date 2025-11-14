@@ -10,8 +10,6 @@ import React from "react";
 import { useTheme } from "./ThemeContext";
 import { backgrounds } from "./backgrounds.js";
 
-// This is the new component you requested, named consistently
-// with ThemePopover.
 export default function BackgroundPopover() {
   const { background, setBackground } = useTheme();
 
