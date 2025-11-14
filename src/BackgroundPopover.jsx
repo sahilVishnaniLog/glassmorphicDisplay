@@ -11,12 +11,12 @@ import { useTheme } from "./ThemeContext";
 import { backgrounds } from "./backgrounds.js";
 
 export default function BackgroundPopover() {
-  const { background, setBackground } = useTheme();
+  const { backgroundImg, setBackgroundImg } = useTheme();
 
   const handleChange = (event) => {
     const selectedBg = backgrounds.find((bg) => bg.id === event.target.value);
     if (selectedBg) {
-      setBackground(selectedBg);
+      setBackgroundImg(selectedBg);
     }
   };
 
@@ -30,7 +30,7 @@ export default function BackgroundPopover() {
           Background Image
         </Typography>
         <RadioGroup
-          value={background.id}
+          value={backgroundImg.id}
           onChange={handleChange}
           label="background"
         >

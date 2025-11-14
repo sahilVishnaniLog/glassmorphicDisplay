@@ -7,8 +7,8 @@ export default function ThemeContext({
   children,
   modeChoice,
   setModeChoice,
-  background,
-  setBackground,
+  backgroundImg,
+  setBackgroundImg,
 }) {
   const isSystemDark = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
@@ -28,7 +28,7 @@ export default function ThemeContext({
       ? { primaryText: "#172B4D", secondaryText: "#5E6C84" }
       : { primaryText: "#EDF2FC", secondaryText: "#2a2c2e" };
 
-    const bgImage = `url(${background.url})`;
+    const bgImage = `url(${backgroundImg.url})`;
 
     return createTheme({
       palette: {
@@ -146,14 +146,14 @@ export default function ThemeContext({
         },
       },
     });
-  }, [effectiveMode, background]);
+  }, [effectiveMode, backgroundImg]);
 
   const value = {
     mode: effectiveMode,
     modeChoice,
     setModeChoice,
-    background,
-    setBackground,
+    backgroundImg,
+    setBackgroundImg,
   };
 
   return (

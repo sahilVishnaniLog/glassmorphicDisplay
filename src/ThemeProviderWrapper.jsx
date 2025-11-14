@@ -7,14 +7,14 @@ import { backgrounds } from "./backgrounds.js"; // Import the backgrounds
 export default function ThemeProviderWrapper() {
   const [modeChoice, setModeChoice] = useState("browserTheme"); // Use browserTheme
 
-  const [background, setBackground] = useState(backgrounds[0]); // Default to the first background
+  const [backgroundImg, setBackgroundImg] = useState(backgrounds[0]); // Default to the first background
 
   return (
     <ThemeContext
       modeChoice={modeChoice}
       setModeChoice={setModeChoice}
-      background={background}
-      setBackground={setBackground}
+      backgroundImg={backgroundImg}
+      setBackgroundImg={setBackgroundImg}
     >
       <CssBaseline />
       <App />

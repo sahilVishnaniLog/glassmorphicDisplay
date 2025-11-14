@@ -17,15 +17,15 @@ import {
 } from "@mui/material";
 
 export default function ColorPopover() {
-  const [chosenBackground, setChosenBackground] = React.useState("dark");
+  const [backgroundColor, setBackgroundColor] = React.useState("dark");
   const handleSelect = (event) => {
     console.log(event.target.value);
-    setChosenBackground(event.target.value);
+    setBackgroundColor(event.target.value);
   };
   return (
     <>
       <FormControl>
-        <RadioGroup value={chosenBackground} onChange={handleSelect}>
+        <RadioGroup value={backgroundColor} onChange={handleSelect}>
           <Grid container spacing={2} bgcolor="white" padding={2}>
             {backgroundURLObject("light").map((item) => (
               <FormControlLabel
@@ -40,7 +40,7 @@ export default function ColorPopover() {
                         height: 60,
                         background: item.background,
                         border:
-                          chosenBackground === item.background
+                          backgroundColor === item.background
                             ? "2px solid #000000"
                             : "none",
                         "&:hover": {
