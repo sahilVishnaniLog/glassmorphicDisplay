@@ -9,6 +9,8 @@ export default function ThemeContext({
   setModeChoice,
   backgroundImg,
   setBackgroundImg,
+  backgroundColor,
+  setBackgroundColor,
 }) {
   const isSystemDark = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
@@ -20,6 +22,10 @@ export default function ThemeContext({
         ? "dark"
         : "light"
       : modeChoice;
+
+  useEffect(() => {
+    setBackgroundColor("");
+  }, [backgroundImg]);
 
   const theme = useMemo(() => {
     const isLight = effectiveMode === "light";
@@ -55,6 +61,7 @@ export default function ThemeContext({
           styleOverrides: {
             body: {
               backgroundImage: bgImage,
+              background: backgroundColor,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
@@ -146,7 +153,7 @@ export default function ThemeContext({
         },
       },
     });
-  }, [effectiveMode, backgroundImg]);
+  }, [effectiveMode, backgroundImg, backgroundColor]);
 
   const value = {
     mode: effectiveMode,
@@ -154,6 +161,8 @@ export default function ThemeContext({
     setModeChoice,
     backgroundImg,
     setBackgroundImg,
+    backgroundColor,
+    setBackgroundColor,
   };
 
   return (

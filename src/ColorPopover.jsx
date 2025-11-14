@@ -3,12 +3,9 @@ import backgroundURLObject from "./color.js";
 import { useTheme } from "./ThemeContext.jsx";
 
 import {
-  Box,
   Grid,
   Typography,
-  Popper,
   Paper,
-  Button,
   RadioGroup,
   FormControl,
   FormControlLabel,
@@ -17,7 +14,9 @@ import {
 } from "@mui/material";
 
 export default function ColorPopover() {
-  const [backgroundColor, setBackgroundColor] = React.useState("dark");
+  const { modeChoice } = useTheme();
+  const { backgroundColor, setBackgroundColor } = useTheme();
+
   const handleSelect = (event) => {
     console.log(event.target.value);
     setBackgroundColor(event.target.value);
@@ -27,7 +26,7 @@ export default function ColorPopover() {
       <FormControl>
         <RadioGroup value={backgroundColor} onChange={handleSelect}>
           <Grid container spacing={2} bgcolor="white" padding={2}>
-            {backgroundURLObject("light").map((item) => (
+            {backgroundURLObject(modeChoice).map((item) => (
               <FormControlLabel
                 key={item.label}
                 value={item.background}
