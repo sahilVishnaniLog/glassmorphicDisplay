@@ -1,7 +1,8 @@
 import React from "react";
 import ThemePopover from "./ThemePopover.jsx";
-import ThemeApplier from "./ThemeApplier.jsx";
+
 import KanbanCard from "./KanbanCard.jsx";
+import { useTheme } from "@mui/material/styles";
 
 import {
   AppBar,
@@ -37,6 +38,7 @@ import {
   MoreHoriz,
   CheckCircleOutline,
 } from "@mui/icons-material";
+
 const columns = [
   { id: "todo", title: "TO DO", count: 5, done: false },
   { id: "progress", title: "IN PROGRESS", count: 2, done: false },
@@ -68,6 +70,7 @@ const tasks = [
 ];
 function App() {
   const [tabValue, setTabValue] = React.useState(0);
+  const theme = useTheme();
 
   return (
     <>
@@ -140,17 +143,6 @@ function App() {
                 <Settings />
               </IconButton>
 
-              {/* <IconButton
-                onClick={toggleColorMode}
-                color="inherit"
-                size="small"
-              >
-                {theme.palette.mode === "dark" ? (
-                  <Brightness7 />
-                ) : (
-                  <Brightness4 />
-                )}
-              </IconButton> */}
               <Avatar
                 sx={{ width: 28, height: 28, bgcolor: "#DF4F4D", fontSize: 14 }}
               >
@@ -370,7 +362,6 @@ function App() {
         </Box>
       </Box>
       <ThemePopover />
-      <ThemeApplier />
     </>
   );
 }

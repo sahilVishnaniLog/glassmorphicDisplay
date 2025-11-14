@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from "react";
+import React, { createContext, useContext, useMemo, useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 import { createTheme, ThemeProvider, alpha } from "@mui/material/styles";
 const ThemeContextHook = createContext();
@@ -7,13 +7,6 @@ export default function ThemeContext({ children, modeChoice, setModeChoice }) {
   const isSystemDark = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
   });
-
-  useEffect(() => {
-    if (modeChoice === "browserTheme") {
-      const newMode = isSystemDark ? "dark" : "light";
-      setModeChoice(newMode);
-    }
-  }, [isSystemDark, modeChoice, setModeChoice]);
 
   const effectiveMode =
     modeChoice === "browserTheme"

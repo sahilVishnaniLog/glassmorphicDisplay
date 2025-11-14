@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { useTheme } from "./ThemeContext";
 
-export default function ThemePopover({ setModeChoice }) {
+export default function ThemePopover() {
   const { modeChoice, setModeChoice } = useTheme(); // CUSTOM HOOK
   const handleChange = (event) => {
     setModeChoice(event.target.value);
