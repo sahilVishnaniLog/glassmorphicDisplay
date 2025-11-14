@@ -3,7 +3,13 @@ import { useMediaQuery } from "@mui/material";
 import { createTheme, ThemeProvider, alpha } from "@mui/material/styles";
 const ThemeContextHook = createContext();
 
-export default function ThemeContext({ children, modeChoice, setModeChoice }) {
+export default function ThemeContext({
+  children,
+  modeChoice,
+  setModeChoice,
+  background,
+  setBackground,
+}) {
   const isSystemDark = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
   });
@@ -22,9 +28,7 @@ export default function ThemeContext({ children, modeChoice, setModeChoice }) {
       ? { primaryText: "#172B4D", secondaryText: "#5E6C84" }
       : { primaryText: "#EDF2FC", secondaryText: "#2a2c2e" };
 
-    const bgImage = isLight
-      ? "url(https://images.unsplash.com/photo-1491466424936-e304919aada7?q=80&w=2069&auto=format&fit=crop)" // Snowy mountain (Day)
-      : "url(https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?q=80&w=2070&auto=format&fit=crop)"; // Starry sky (Night)
+    const bgImage = `url(${background.url})`;
 
     return createTheme({
       palette: {
@@ -142,9 +146,15 @@ export default function ThemeContext({ children, modeChoice, setModeChoice }) {
         },
       },
     });
-  }, [effectiveMode]);
+  }, [effectiveMode, background]);
 
-  const value = { mode: effectiveMode, modeChoice, setModeChoice };
+  const value = {
+    mode: effectiveMode,
+    modeChoice,
+    setModeChoice,
+    background,
+    setBackground,
+  };
 
   return (
     <>

@@ -1,5 +1,6 @@
 import React from "react";
 import ThemePopover from "./ThemePopover.jsx";
+import BackgroundPopover from "./BackgroundPopover.jsx";
 
 import KanbanCard from "./KanbanCard.jsx";
 import { useTheme } from "@mui/material/styles";
@@ -362,6 +363,7 @@ function App() {
         </Box>
       </Box>
       <ThemePopover />
+      <BackgroundPopover />
     </>
   );
 }
