@@ -31,7 +31,6 @@ const colorBoundariesDark = [
   { start: "#1f1f21", end: "#1f1f21", popperLabel: "none(black)" },
 ];
 
-//"linear-gradient(45deg, #FFC700, #E91E63)"
 const backgroundURLObject = (modeChoice) =>
   (modeChoice === "light" ? colorBoundariesLight : colorBoundariesDark).map(
     (color) => {
