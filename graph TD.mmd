@@ -1,0 +1,18 @@
+---
+title: COMPONENT STRUCTURE 
+---
+
+graph TD
+    A[src/main.jsx] --> B(ThemeProviderWrapper);
+    B --> C(ThemeContext);
+    C --> D(App);
+
+    subgraph AppChildren
+        D --> E(KanbanCard);
+        D --> F(ThemePopover);
+        D --> G(BackgroundPopover);
+        D --> H(ColorPopover);
+    end
+
+
+    
