@@ -31,7 +31,7 @@ const colorBoundariesDark = [
   { start: "#1f1f21", end: "#1f1f21", popperLabel: "none(black)" },
 ];
 
-const backgroundURLObject = (modeChoice) =>
+const backgroundColors = (modeChoice) =>
   (modeChoice === "light" ? colorBoundariesLight : colorBoundariesDark).map(
     (color) => {
       return {
@@ -41,4 +41,4 @@ const backgroundURLObject = (modeChoice) =>
     }
   );
 
-export default backgroundURLObject;
+export default backgroundColors;

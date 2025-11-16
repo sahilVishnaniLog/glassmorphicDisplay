@@ -92,7 +92,6 @@ function App() {
 
       <ThemePopover />
       <BackgroundPopover />
-      <ColorPopover />
     </>
   );
 }

@@ -1,18 +1,18 @@
 ---
-title: COMPONENT STRUCTURE 
+config:
+  theme: default
+  layout: elk
+  look: handDrawn
 ---
-
-graph TD
-    A[src/main.jsx] --> B(ThemeProviderWrapper);
-    B --> C(ThemeContext);
-    C --> D(App);
-
-    subgraph AppChildren
-        D --> E(KanbanCard);
-        D --> F(ThemePopover);
-        D --> G(BackgroundPopover);
-        D --> H(ColorPopover);
-    end
-
-
-    
+flowchart TB
+ subgraph AppChildren["AppChildren"]
+        E("KanbanCard")
+        D("App")
+        F("ThemePopover")
+        G("BackgroundPopover")
+        H("ColorPopover")
+  end
+    A["src/main.jsx"] --> B("ThemeProviderWrapper")
+    B --> C("ThemeContext")
+    C --> D
+    D --> E & F & G & H

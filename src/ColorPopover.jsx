@@ -25,7 +25,7 @@ export default function ColorPopover() {
     <>
       <FormControl>
         <RadioGroup value={backgroundColor} onChange={handleSelect}>
-          <Grid container spacing={2} bgcolor="white" padding={2}>
+          <Grid container spacing={2} bgcolor="transparent" padding={2}>
             {backgroundURLObject(modeChoice).map((item) => (
               <FormControlLabel
                 key={item.label}
@@ -40,10 +40,14 @@ export default function ColorPopover() {
                         background: item.background,
                         border:
                           backgroundColor === item.background
-                            ? "2px solid #000000"
+                            ? `4px solid ${
+                                modeChoice === "dark" ? "#fff" : "#000"
+                              }`
                             : "none",
                         "&:hover": {
-                          border: "2px solid #000000",
+                          border: `2px solid ${
+                            modeChoice === "dark" ? "#fff" : "#000"
+                          }`,
                         },
                       }}
                     ></Paper>
@@ -51,7 +55,6 @@ export default function ColorPopover() {
                 }
               />
             ))}
-            <Typography>No background</Typography>
           </Grid>
         </RadioGroup>
       </FormControl>
